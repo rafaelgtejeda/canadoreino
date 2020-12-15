@@ -3,8 +3,8 @@ import 'dart:io' show Platform;
 
 import 'package:canadoreino/pages/base_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:splashscreen/splashscreen.dart';
-
 
 class SplashScreenTela extends StatelessWidget {
 
@@ -30,7 +30,7 @@ class SplashScreenTela extends StatelessWidget {
      loaderColor: Colors.green[900],
      loadingText: new Text('Carregando...',
         style: new TextStyle(
-         color: Colors.green[900],        
+         color: HexColor('#d7be39'),        
          fontSize: 16.0
        ),
     ),

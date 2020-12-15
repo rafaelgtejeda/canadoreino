@@ -1,19 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:canadoreino/pages/signup_screen.dart';
 import 'package:canadoreino/shared/widgets/bezier_container.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'base_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key key, this.title}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  SignUpScreen({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -24,11 +24,17 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Row(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
-              child: Icon(Icons.keyboard_arrow_left, color: Colors.black),
+              padding: EdgeInsets.only(left: 0, top: 12, bottom: 10),
+              child: Icon(Icons.keyboard_arrow_left, color: HexColor('#46531d')),
             ),
             Text('Voltar',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500))
+                style: GoogleFonts.qwigley(
+                fontWeight: FontWeight.w700,
+                fontSize: 28,
+                color: HexColor('#46531d'),
+                letterSpacing: 5.0,
+              )
+            )
           ],
         ),
       ),
@@ -82,11 +88,10 @@ class _LoginScreenState extends State<LoginScreen> {
               end: Alignment.centerRight,
               colors: [HexColor('#46531d'), HexColor('#272e10')])),
       child: Text(
-        'Login',
+        'Cadastrar',
         style: GoogleFonts.qwigley(
           textStyle: Theme.of(context).textTheme.headline1,
-          fontWeight: FontWeight.w700,
-          fontSize: 28,
+          fontSize: 30,
           color: Colors.white,
           letterSpacing: 5.0,
         ),
@@ -164,13 +169,10 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               alignment: Alignment.center,
               child: Text('Entrar com o facebook',
-                  style: GoogleFonts.roboto(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 18,
-                  color: Colors.white,
-                  letterSpacing: 1.0,
-                )
-              )
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400)),
             ),
           ),
         ],
@@ -178,41 +180,18 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget _createAccountLabel() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SignUpScreen()));
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 20),
-        padding: EdgeInsets.all(15),
-        alignment: Alignment.bottomCenter,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Não possui conta ?',
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              'Cadastre-se',
-              style: TextStyle(
-                  color: HexColor('#46531d'),
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-      ),
+   Widget _titulo() {
+    return Container(
+      alignment: Alignment.center,
+      child: Text('Cadastre-se', style: GoogleFonts.qwigley(
+        textStyle: Theme.of(context).textTheme.headline1,
+      fontSize: 61,
+      fontWeight: FontWeight.w700,
+      fontStyle: FontStyle.italic,
+      color: HexColor('#46531d'),
+      letterSpacing: 5.0,
+      )),
     );
-  }
-
-  Widget _logo() {
-    return Image.asset('images/logo/logo.png', width: 191,);
   }
 
   Widget _emailPasswordWidget() {
@@ -251,16 +230,15 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
 
                 crossAxisAlignment: CrossAxisAlignment.center,
-                
                 mainAxisAlignment: MainAxisAlignment.center,
 
                 children: <Widget>[
 
-                  SizedBox(height: height * .12),
+                  SizedBox(height: height * .22),
 
-                  _logo(),
+                  _titulo(),
 
-                  SizedBox(height: 50),
+                  SizedBox(height: 20),
 
                   _emailPasswordWidget(),
 
@@ -268,31 +246,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   _submitButton(),
 
-                  Container(
-
-                    padding: EdgeInsets.symmetric(vertical: 10),
-
-                    alignment: Alignment.centerRight,
-
-                    child: Text('Esqueci minha senha ?',
-                        style: TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w500)),
-                  ),
-
-                  _divider(),
-
-                  _facebookButton(),
-
-                  SizedBox(height: height * .01),
-
-                  _createAccountLabel(),
-
                 ],
               ),
             ),
           ),
 
-          // Positioned(top: 40, left: 0, child: _backButton()),
+          Positioned(top: 61, left: 0, child: _backButton()),
         ],
       ),
     ));

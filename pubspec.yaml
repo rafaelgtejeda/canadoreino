@@ -18,6 +18,7 @@ dependencies:
   url_launcher: ^5.7.10
   path_provider: ^1.6.24
   sqfentity_gen: ^1.4.0+2
+  simple_animations: ^2.4.0
   animated_text_kit: ^2.5.4
   sign_in_with_apple: ^2.5.4
   argon_buttons_flutter: ^1.0.6
@@ -25,6 +26,7 @@ dependencies:
   flutter_cmoon_icons: ^0.1.0
   keyboard_actions: ^3.2.1+1
   flutter_spinkit: "^4.1.2"
+  google_fonts: ^1.1.1
   auto_animated: ^2.1.0
   brasil_fields: ^0.5.0
   supercharged: ^1.12.0
